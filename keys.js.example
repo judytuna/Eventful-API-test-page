@@ -1,0 +1,4 @@
+module.exports = {
+  "eventful": <YOUR_OWN_EVENTFUL_API_KEY_HERE>,
+  "mySql": <YOUR_MYSQL_PASSWORD_HERE>'
+}
