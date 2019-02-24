@@ -1,18 +1,16 @@
 const connection = require('./connection');
 const app = require('./app');
 
-const mySqlConnect = () => {
+const dbConnect = () => {
   connection.connect((err) =>{
     if (err) throw err;
 
     console.log('Welcome to Eventonica')
     console.log("connected as Administrator");
 
-    app.startQuestion(()=>{ connection.end() });
+    app.startQuestion(() => { connection.end() });
   })
 }
 
-// *Uncomment below line once you have mySQL setup
-
-mySqlConnect();
-
+// Uncomment below line once you have PostgreSQL setup
+// dbConnect();

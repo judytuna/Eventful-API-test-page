@@ -1,13 +1,13 @@
 //require packages
-const mysql = require("mysql");
-const mySqlKey = require('./keys').mySql;
+const db = require("pg");
+const keys = require('./keys')
 
-//create MySQL connection
-const connection = mysql.createConnection({
+// create PostgreSQL connection
+const connection = new db.Client({
   host: "localhost",
-  port: 3306,
-  user: "root",
-  password: mySqlKey,
+  port: 5432,
+  user: "eventonica",
+  password: keys.dbPassword,
   database: "eventonica"
 });
 
