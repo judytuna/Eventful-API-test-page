@@ -1,4 +1,4 @@
-const connection = require('./connection');
+// const connection = require('./connection');
 const app = require('./app');
 
 const mySqlConnect = () => {
