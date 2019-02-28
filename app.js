@@ -48,9 +48,31 @@ app.getAllEvents = (continueCallback) => {
 }
 
 app.inputNewEvent = (continueCallback) => {
-  fetch('http://localhost:3000/events', {method: 'POST'})
-    .then(res => res.json())
-    .then(json => console.log(json));
+  const questions = [{
+    type: 'input',
+    name: 'title',
+    message: 'what is this event called?',
+    default: 'dance party'
+  }, {
+    type: 'input',
+    name: 'city',
+    message: 'what city?',
+    default: 'Pawtucket'
+  }];
+
+  inquirer.prompt(questions).then(answers => {
+    const postBody = {
+      title: answers.title,
+      city: answers.city
+    };
+    console.log(postBody);
+
+    fetch('http://localhost:3000/events', {
+      method: 'POST',
+      body: JSON.stringify(postBody),
+      headers: { 'Content-Type': 'application/json' }
+    }).then(res => res.json()).then(json => console.log(json));
+  });
 }
 
 app.callOutToEventful = (continueCallback) => {
