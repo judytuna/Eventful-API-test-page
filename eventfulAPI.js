@@ -1,9 +1,9 @@
 const eventfulKey = require("./keys.js").eventful;
 const eventful = require('eventful-node');
-const client = new eventful.Client(eventfulKey);
+const eventfulClient = new eventful.Client(eventfulKey);
 
 //sample search, try running it to see it in action
-client.searchEvents({
+eventfulClient.searchEvents({
   keywords: 'tango',
   location: 'San Francisco',
   date: "Next Week"
@@ -24,7 +24,4 @@ client.searchEvents({
 });
 
 //export a custom function that searches via Eventful API, displays the results AND stores some of the data into MySQL
-module.exports = function(optionsObj){
-  // YOUR WORK HERE
-  console.log("You need to create this functionality yourself")
-}
+module.exports = eventfulClient;
