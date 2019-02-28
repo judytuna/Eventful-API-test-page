@@ -34,7 +34,9 @@ app.completeSentence = (continueCallback) => {
 }
 
 app.getAllEvents = (continueCallback) => {
-  console.log('Please write code for this function');
+  fetch('http://localhost:3000/events')
+    .then(res => res.json())
+    .then(json => console.log(json));
 }
 
 module.exports = app;
